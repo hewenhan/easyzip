@@ -33,8 +33,18 @@ def getAllFileInPath(inputPath):
 
 	return result
 
-def zip(inputPath, outputFile, compressLevel = 4, password = None):
+def zip(inputPath, outputFile = None, compressLevel = 4, password = None):
 	print('compressing')
+
+	inputPath = os.path.expanduser(inputPath)
+	inputPath = os.path.abspath(inputPath)
+
+	if outputFile == None:
+		outputFile = os.path.basename(inputPath) + '.zip'
+
+	if os.path.exists(inputPath) == False:
+		raise Exception('path or file is not exist')
+
 	filePathDictList = getAllFileInPath(inputPath)
 	
 	srcFileNameList = []

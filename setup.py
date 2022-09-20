@@ -14,7 +14,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 	name                          = 'easyzip',
-	version                       = '0.8.1',
+	version                       = '1.0.0',
 	author                        = "Blind Holmes",
 	author_email                  = "hewenhan@gmail.com",
 	description                   = "Easy zip file or directory with password",
