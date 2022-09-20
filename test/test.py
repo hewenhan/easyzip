@@ -8,7 +8,7 @@ import easyzip
 #1-324M
 #0-307M
 
-easyzip.zip(".", password = "123456")
+easyzip.zip(".")
 
 # for i in range(10):
 # 	startTime = datetime.datetime.now()

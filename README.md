@@ -15,11 +15,17 @@ You can also create a password protected zip archive.
 
 import easyzip
 
-easyzip.zip('path/to/file/or/folder', 'path/to/zip/archive.zip', compressLevel = 4, password = 'hahahahaha')
+easyzip.zip('path/to/file/or/folder')
 
 ```
 
 #### easyzip.zip(pathWillBeZipped, pathToZipArchive, compressLevel, password)
+Like 
+
+```
+easyzip.zip('path/to/file/or/folder', 'path/to/zip/archive.zip', compressLevel = 4, password = 'hahahahaha')
+```
+
 ##### pathWillBeZipped
 The path of file or folder will be zipped.
 
@@ -38,17 +44,22 @@ The password of zip archive. If the password is not None, the zip archive will b
 
 import easyzip
 
-easyzip.unzip('path/to/zip/archive.zip', 'path/to/unzip/folder', password = 'hahahahaha')
+easyzip.unzip('path/to/zip/archive.zip')
 
 ```
 
 #### easyzip.unzip(pathToZipArchive, pathToUnzipFolder, password)
+Like
+
+```
+easyzip.unzip('path/to/zip/archive.zip', 'path/to/unzip/folder', password = 'hahahahaha')
+```
 
 ##### pathToZipArchive
 The path of zip archive.
 
 ##### pathToUnzipFolder
-The path of folder will be unzipped. If the path does not exist, it will be created.
+The path of folder will be unzipped. If the path does not exist, it will be created. Default use pathToZipArchive base path name.
 
 ##### password
 The password of zip archive.

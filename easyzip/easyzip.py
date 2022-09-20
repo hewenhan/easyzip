@@ -53,13 +53,20 @@ def zip(inputPath, outputFile = None, compressLevel = 4, password = None):
 	for filePathDict in filePathDictList:
 		print(filePathDict)
 		srcFileNameList.append(filePathDict['filePath'])
-		pathInDstZip.append(filePathDict['path'])
+		pathInDstZip.append(filePathDict['path'][len(inputPath) + 1:])
 
 	pyminizip.compress_multiple(srcFileNameList, pathInDstZip, outputFile, password, compressLevel)
 	print(f'compressdone output: {outputFile}')
 
-def unzip(inputFile, outputPath, password = None):
+def unzip(inputFile, outputPath = None, password = None):
 	print('uncompressing')
+	print(inputFile)
+	print(outputPath)
+	if outputPath == None:
+		outputPath = os.path.basename(inputFile)
+		# remove file extension
+		outputPath = outputPath[:outputPath.rfind('.')]
+		print(outputPath)
 	isExist = os.path.exists(outputPath)
 	if isExist == False:
 		os.makedirs(outputPath)
