@@ -1,1 +1,1 @@
-from .easyzip import zip
+from .easyzip import zip, unzip

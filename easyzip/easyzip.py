@@ -33,7 +33,7 @@ def getAllFileInPath(inputPath):
 
 	return result
 
-def zip(inputPath, outputFile, compressLevel = 9, password = None):
+def zip(inputPath, outputFile, compressLevel = 4, password = None):
 	print('compressing')
 	filePathDictList = getAllFileInPath(inputPath)
 	
@@ -48,3 +48,10 @@ def zip(inputPath, outputFile, compressLevel = 9, password = None):
 	pyminizip.compress_multiple(srcFileNameList, pathInDstZip, outputFile, password, compressLevel)
 	print(f'compressdone output: {outputFile}')
 
+def unzip(inputFile, outputPath, password = None):
+	print('uncompressing')
+	isExist = os.path.exists(outputPath)
+	if isExist == False:
+		os.makedirs(outputPath)
+	pyminizip.uncompress(inputFile, password, outputPath, 0)
+	print(f'uncompressdone output: {outputPath}')
